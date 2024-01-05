@@ -25,4 +25,4 @@ ARG target_name
 RUN node add_target.js ${target_url}
 
 # Run the built application
-CMD ["node index.js ${target_name}"]
+CMD ["node", "/src/index.js" ,"${target_name}"]

@@ -2,8 +2,6 @@ import puppeteer from 'puppeteer-extra'
 import StealthPlugin from 'puppeteer-extra-plugin-stealth'
 import fs from 'fs';
 import path from 'path';
-import prompt from 'prompt';
-prompt.message = '';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -36,7 +34,7 @@ var favicon_url = '';
   const page = await browser.newPage();
   await page.setUserAgent(default_user_agent)
   await page.setCacheEnabled(false);
-  const {login_page} = await prompt.get([{name: 'login_page', description: 'URL of Login Page to Target', type: 'string'}]);
+  const login_page = process.argv[2];
   const short_name = login_page.split("/")[2].split('.').slice(-2, -1)[0]
 
   page.on('response', async response => {
