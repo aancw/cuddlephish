@@ -4,10 +4,9 @@ services:
     node-app:
         container_name: node-app
         restart: unless-stopped
-        environment: 
-            - NODE_ENV=production
         build:
             context: ./
+        env_file: .env
 
     # Run the caddy server        
     caddy:

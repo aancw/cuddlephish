@@ -19,10 +19,7 @@ RUN rm -rf /src/node_modules && cp -a /tmp/node_modules /src/
 
 WORKDIR /src
 
-ARG target_url
-ARG target_name
-
-RUN node add_target.js ${target_url}
+RUN node add_target.js
 
 # Run the built application
-CMD ["node", "/src/index.js" ,"${target_name}"]
+CMD ["node", "/src/index.js"]
