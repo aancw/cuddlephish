@@ -16,7 +16,7 @@ import Xvfb from 'xvfb'
 const config = JSON.parse(fs.readFileSync('./config.json', 'utf8'));
 //import custom target configs
 const targets = JSON.parse(fs.readFileSync('./targets.json', 'utf8'));
-const target = targets[process.env.TARGET_NAME]
+const target = targets[process.argv[2]]
 
 //set user agent with 'navigator.platform' set to stomp 'Linux'
 const ua = UserAgentOverride({ userAgent: config.default_user_agent })
